@@ -1,0 +1,38 @@
+# Facebook Number Checker API
+
+> Official CheckNumber code examples for a bulk, asynchronous API used to check Facebook account registration by phone number or email address.
+
+Base URL: https://api.checknumber.ai
+Authentication: X-API-Key request header
+
+## Workflow
+
+1. Submit: POST https://api.checknumber.ai/v1/tasks with `file` and `task_type=facebook`.
+2. Poll: POST https://api.checknumber.ai/v1/gettasks with `task_id`.
+3. Download: retrieve `result_url` after status becomes `exported`.
+
+## Variants
+
+- `task_type=facebook` — Facebook Phone Number Checker: https://docs.checknumber.ai/facebook-bulk-number-checker
+- `task_type=facebook_email` — Facebook Email Checker: https://docs.checknumber.ai/facebook-email-checker
+
+## Pricing
+
+Current terms: https://checknumber.ai/pricing
+Balance endpoint: GET https://api.checknumber.ai/v1/balance
+
+## Docs
+
+- Canonical documentation: https://docs.checknumber.ai/facebook-bulk-number-checker
+- Dashboard and API keys: https://platform.checknumber.ai
+
+## Code examples
+
+- examples/python
+- examples/nodejs
+- examples/go
+- examples/java
+- examples/csharp
+- examples/php
+- examples/javascript
+- examples/shell
