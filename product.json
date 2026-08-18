@@ -1,10 +1,15 @@
 {
   "name": "Facebook Number Checker API",
+  "brand": "CheckNumber",
   "slug": "facebook-number-checker-api",
-  "description": "Bulk asynchronous file-based API used to check Facebook account registration by phone number or email address.",
+  "repository": "checkernumber/facebook-number-checker-api",
+  "description": "Asynchronous file-based Facebook checks.",
+  "official_site": "https://checknumber.ai",
+  "landing_page": "https://checknumber.ai/products/facebook",
   "canonical_docs": "https://docs.checknumber.ai/facebook-bulk-number-checker",
   "dashboard": "https://platform.checknumber.ai",
   "base_url": "https://api.checknumber.ai",
+  "mode": "async",
   "auth": {
     "type": "api_key",
     "header": "X-API-Key"
@@ -24,34 +29,36 @@
     }
   },
   "input": {
-    "file_format": "text; one E.164 phone number per line, or one email per line for email task types"
+    "file_format": "text file, one phone number, email address, or username according to service_type per line according to task type"
   },
-  "result_fields": [
-    {
-      "field": "Number",
-      "description": "Phone number in E.164 format",
-      "example": "+41798284651"
-    },
-    {
-      "field": "facebook",
-      "description": "Whether number has active Facebook account",
-      "example": "yes, no, ban"
-    }
-  ],
   "products": [
     {
       "task_type": "facebook",
-      "name": "Facebook Phone Number Checker",
+      "name": "Number Checker",
       "doc_slug": "facebook-bulk-number-checker",
-      "input_kind": "phone"
+      "input_kind": "phone",
+      "min_numbers": 100,
+      "max_numbers": 10000000,
+      "result_fields": [
+        "number",
+        "activated"
+      ]
     },
     {
       "task_type": "facebook_email",
-      "name": "Facebook Email Checker",
+      "name": "Email Checker",
       "doc_slug": "facebook-email-checker",
-      "input_kind": "email"
+      "input_kind": "email",
+      "min_numbers": 1000,
+      "max_numbers": 10000000,
+      "result_fields": [
+        "email",
+        "activated"
+      ]
     }
   ],
   "pricing_url": "https://checknumber.ai/pricing",
-  "last_updated": "2026-07-13"
+  "maintainer": "CheckNumber",
+  "license": "MIT",
+  "last_reviewed": "2026-08-18"
 }
