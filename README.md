@@ -21,8 +21,8 @@ curl -X POST "https://api.checknumber.ai/v1/gettasks" -H "X-API-Key: ${CHECKNUMB
 
 | Code | Name | Input | Limits | Result fields | Documentation |
 | --- | --- | --- | --- | --- | --- |
-| `facebook` | Number Checker | phone | 100–10000000 rows | `number, activated` | [docs](https://docs.checknumber.ai/facebook-bulk-number-checker) |
-| `facebook_email` | Email Checker | email | 1000–10000000 rows | `email, activated` | [docs](https://docs.checknumber.ai/facebook-email-checker) |
+| `facebook` | Number Checker | phone | 1–10,000,000 rows | `number, activated` | [docs](https://docs.checknumber.ai/facebook-bulk-number-checker) |
+| `facebook_email` | Email Checker | email | 1–10,000,000 rows | `email, activated` | [docs](https://docs.checknumber.ai/facebook-email-checker) |
 
 ## Response and boundaries
 
@@ -42,4 +42,14 @@ Seven self-contained examples are provided under `examples/`: Python, Node.js, G
 - Pricing: https://checknumber.ai/pricing
 - OpenAPI contract: [openapi.yaml](openapi.yaml)
 
-Last reviewed: 2026-08-18.
+Last reviewed: 2026-10-30.
+
+
+## Upload and billing limits verified 2026-10-30
+
+| Task type | Minimum upload | Maximum upload | Minimum billable quantity |
+| --- | ---: | ---: | ---: |
+| `facebook` | 1 | 10,000,000 | 500 |
+| `facebook_email` | 1 | 10,000,000 | 500 |
+
+Upload minimum and minimum billable quantity are different. A smaller accepted upload can still be billed at the stated minimum. Zero means no billing floor. A wholly failed/unprocessed task is not charged a fabricated minimum. Check current account pricing before submitting.
